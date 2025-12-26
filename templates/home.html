@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FACILIO — Welcome</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body class="home">
+  <div class="bg-glow"></div>
+  <div class="bg-grid"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">F</div>
+      <div>
+        <div class="title">FACILIO</div>
+        <div class="sub">Connected Operations • Smart Building Platforms</div>
+      </div>
+    </div>
+    <a class="btn primary" href="/toolkit">Open Toolkit →</a>
+  </header>
+
+  <main class="hero">
+    <section class="heroCard">
+      <h1>Welcome to FACILIO</h1>
+      <p class="muted">
+        This internship-style project demonstrates internal utility tools for operational efficiency:
+        automated file organization and CSV data cleaning — with job simulation, KPIs, and analytics visuals.
+      </p>
+
+      <div class="kpis">
+        <div class="kpi">
+          <div class="k">Operational Clarity</div>
+          <div class="s">Standardized datasets for reporting</div>
+        </div>
+        <div class="kpi">
+          <div class="k">Automation</div>
+          <div class="s">Reduced manual file handling</div>
+        </div>
+        <div class="kpi">
+          <div class="k">Reliability</div>
+          <div class="s">Cleaner data, fewer errors</div>
+        </div>
+      </div>
+
+      <div class="heroRow">
+        <a class="btn primary" href="/toolkit">Launch Project Dashboard</a>
+        <div class="muted">Enterprise-style UI • Animated workflows • Stats & Charts</div>
+      </div>
+    </section>
+
+    <section class="heroCard heroSide">
+      <div class="k">Live Analytics Simulation</div>
+      <p class="muted">
+        Background visualizations represent continuous data operations and monitoring workflows.
+      </p>
+
+      <div class="miniCharts">
+        <canvas id="spark1"></canvas>
+        <canvas id="spark2"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOUNDER SECTION -->
+  <section class="founderWrap" id="founder">
+    <div class="founderCard">
+      <div class="founderHead">
+        <div class="founderBadge">
+          <div class="founderAvatar" aria-hidden="true">
+            <span>MT</span>
+            <div class="ring"></div>
+          </div>
+          <div class="founderMeta">
+            <div class="founderLabel">Founder</div>
+            <div class="founderName">SAHANA MS </div>
+            <div class="founderTitle">Computer Science Engineering • CHENNAI INSTITUTE OF TECHNOLOGY</div>
+            <div class="founderLoc">CHENNAI,INDIA</div>
+          </div>
+        </div>
+
+        <div class="founderActions">
+          <a class="btn ghost" href="/toolkit">View Toolkit</a>
+          <a class="btn primary" href="#founder">About the Founder</a>
+        </div>
+      </div>
+
+      <div class="founderBody">
+        <div class="founderHighlights">
+          <div class="pill">Automation</div>
+          <div class="pill">Data Cleaning</div>
+          <div class="pill">Operational Analytics</div>
+          <div class="pill">Enterprise UI</div>
+        </div>
+
+        <p class="muted founderBio">
+          Building FACILIO as a simulation of real internal tools used in operations teams — focused on
+          clean workflows, reliable data, and dashboard-driven decision making.
+        </p>
+
+        <div class="founderGrid">
+          <div class="founderStat">
+            <div class="n">2</div>
+            <div class="t">Core Modules</div>
+            <div class="d">File Organizer + CSV Cleaner</div>
+          </div>
+          <div class="founderStat">
+            <div class="n">KPIs</div>
+            <div class="t">Tracked</div>
+            <div class="d">Speed, consistency, error reduction</div>
+          </div>
+          <div class="founderStat">
+            <div class="n">UX</div>
+            <div class="t">Enterprise-ready</div>
+            <div class="d">Animations, clarity + structure</div>
+          </div>
+        </div>
+
+        <div class="founderFooter">
+          <div class="muted small">
+            Want to see it in action? Open the Toolkit and run a file organization or CSV cleaning job.
+          </div>
+          <a class="btn primary" href="/toolkit">Open Toolkit →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE-LOCAL STYLES (keeps it beautiful even if style.css isn't updated yet) -->
+  <style>
+    .founderWrap{
+      padding: 0 16px 28px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .founderCard{
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .founderCard::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(800px 240px at 20% 10%, rgba(46, 144, 255, .28), transparent 60%),
+        radial-gradient(700px 240px at 80% 0%, rgba(0, 255, 198, .18), transparent 55%),
+        radial-gradient(500px 240px at 50% 120%, rgba(180, 94, 255, .18), transparent 55%);
+      pointer-events:none;
+    }
+    .founderHead, .founderBody{ position: relative; z-index: 1; }
+
+    .founderHead{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding: 16px 16px 10px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .founderBadge{ display:flex; align-items:center; gap:12px; }
+    .founderAvatar{
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display:grid;
+      place-items:center;
+      position: relative;
+      background: rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.12);
+      overflow:hidden;
+    }
+    .founderAvatar span{
+      font-weight: 800;
+      letter-spacing: .5px;
+      color: rgba(255,255,255,.92);
+    }
+    .founderAvatar .ring{
+      position:absolute;
+      inset:-60%;
+      background: conic-gradient(from 180deg, rgba(46,144,255,.0), rgba(46,144,255,.65), rgba(0,255,198,.55), rgba(180,94,255,.55), rgba(46,144,255,.0));
+      animation: spin 6s linear infinite;
+      opacity: .35;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .founderMeta{ line-height: 1.1; }
+    .founderLabel{
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      opacity: .75;
+      margin-bottom: 4px;
+    }
+    .founderName{
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .founderTitle, .founderLoc{
+      font-size: 13px;
+      opacity: .8;
+      margin-top: 2px;
+    }
+
+    .founderActions{ display:flex; gap:10px; flex-wrap:wrap; }
+    .btn.ghost{
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      color: rgba(255,255,255,.88);
+      text-decoration:none;
+      padding: 10px 12px;
+      border-radius: 12px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .btn.ghost:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.22);
+    }
+
+    .founderBody{ padding: 14px 16px 16px; }
+    .founderHighlights{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-bottom: 10px;
+    }
+    .pill{
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.20);
+      opacity: .92;
+    }
+    .founderBio{ margin: 10px 0 14px; }
+
+    .founderGrid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .founderStat{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.22);
+      border-radius: 16px;
+      padding: 12px;
+      overflow:hidden;
+      position: relative;
+    }
+    .founderStat::after{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background: radial-gradient(300px 120px at 20% 0%, rgba(46,144,255,.18), transparent 60%);
+      pointer-events:none;
+    }
+    .founderStat .n{
+      font-size: 20px;
+      font-weight: 900;
+      margin-bottom: 6px;
+      position: relative;
+      z-index: 1;
+    }
+    .founderStat .t{
+      font-size: 13px;
+      font-weight: 700;
+      opacity: .9;
+      position: relative;
+      z-index: 1;
+    }
+    .founderStat .d{
+      font-size: 12px;
+      opacity: .75;
+      margin-top: 4px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .founderFooter{
+      margin-top: 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,.10);
+    }
+    .small{ font-size: 12px; opacity: .75; }
+
+    @media (max-width: 900px){
+      .founderHead{ flex-direction: column; align-items:flex-start; }
+      .founderGrid{ grid-template-columns: 1fr; }
+      .founderFooter{ flex-direction: column; align-items:flex-start; }
+    }
+  </style>
+
+  <script src="/static/js/home.js"></script>
+</body>
+</html>

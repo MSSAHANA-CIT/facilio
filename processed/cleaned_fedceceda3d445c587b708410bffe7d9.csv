@@ -1,0 +1,8 @@
+name,age,city,salary,notes,emptycol
+Alice,25.0,New York,70000.0,good employee,
+Bob,30.0,Los Angeles,80000.0,excellent,
+Bob,30.0,Los Angeles,80000.0,excellent,
+Charlie,,Chicago,65000.0,nan,
+Dana,28.0,nan,72000.0,new joiner,
+nan,,nan,,nan,
+Eve,35.0,Boston,90000.0,senior staff,

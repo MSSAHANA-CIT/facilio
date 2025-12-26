@@ -1,0 +1,8 @@
+ Name , Age , City , Salary , Notes , EmptyCol
+ Alice , 25 , New York , 70000 , good employee ,
+ Bob , 30 , Los Angeles , 80000 , excellent ,
+ Bob , 30 , Los Angeles , 80000 , excellent ,
+ Charlie , , Chicago , 65000 ,  ,
+ Dana , 28 ,  , 72000 , new joiner ,
+ , , , , ,
+ Eve , 35 , Boston , 90000 , senior staff ,

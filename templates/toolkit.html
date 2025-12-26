@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FACILIO — Toolkit</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <div class="bg-grid"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">F</div>
+      <div>
+        <div class="title">FACILIO</div>
+        <div class="sub">Project Dashboard</div>
+      </div>
+    </div>
+    <a class="btn" href="/">← Home</a>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <div class="tabs">
+        <button class="tabBtn" onclick="showTab('org')">File Organizer</button>
+        <button class="tabBtn" onclick="showTab('csv')">CSV Cleaner</button>
+        <div id="tabIndicator" class="tabIndicator"></div>
+      </div>
+
+      <!-- Organizer -->
+      <div id="panelOrg" class="panel">
+        <h2>File Extension Organizer</h2>
+        <p class="muted">Upload files and download a ZIP organized by file type.</p>
+
+        <input id="files" type="file" multiple />
+        <div id="fileSummary" class="muted mt8">No files selected</div>
+
+        <div id="groups" class="grid mt12"></div>
+
+        <button id="zipBtn" class="btn primary mt16" onclick="downloadZip()" disabled>
+          Download Organized ZIP
+        </button>
+      </div>
+
+      <!-- CSV -->
+      <div id="panelCsv" class="panel hidden">
+        <h2>CSV Data Cleaner</h2>
+        <p class="muted">Choose rules, run the job, and view results with stats & charts.</p>
+
+        <input id="csvFile" type="file" accept=".csv" />
+        <div id="csvName" class="muted mt8">No CSV selected</div>
+
+        <div class="switchGrid mt16">
+          <div class="swRow" onclick="flip('trim_headers')"><div class="sw" id="sw_trim_headers"></div><div>Trim headers</div></div>
+          <div class="swRow" onclick="flip('normalize_headers')"><div class="sw" id="sw_normalize_headers"></div><div>Normalize headers (snake_case)</div></div>
+          <div class="swRow" onclick="flip('trim_cells')"><div class="sw" id="sw_trim_cells"></div><div>Trim cell text</div></div>
+          <div class="swRow" onclick="flip('drop_empty_rows')"><div class="sw" id="sw_drop_empty_rows"></div><div>Drop empty rows</div></div>
+          <div class="swRow" onclick="flip('drop_empty_cols')"><div class="sw" id="sw_drop_empty_cols"></div><div>Drop empty columns</div></div>
+          <div class="swRow" onclick="flip('dedupe_rows')"><div class="sw" id="sw_dedupe_rows"></div><div>Drop exact duplicates</div></div>
+        </div>
+
+        <div class="jobCard mt16">
+          <div class="jobTop">
+            <div>
+              <div class="jobTitle">Job Runner</div>
+              <div id="jobState" class="muted">Idle</div>
+            </div>
+            <button id="cleanBtn" class="btn primary" onclick="runCleaner()" disabled>Run Cleaning Job</button>
+          </div>
+
+          <div class="progressBar">
+            <div id="barFill" class="barFill"></div>
+          </div>
+
+          <div class="steps">
+            <div id="st1" class="step">Upload</div>
+            <div id="st2" class="step">Parse</div>
+            <div id="st3" class="step">Clean</div>
+            <div id="st4" class="step">Export</div>
+          </div>
+
+          <div class="weather">
+            <div id="cloud" class="cloud"></div>
+            <div id="rain" class="rain"></div>
+            <div id="sun" class="sun"></div>
+          </div>
+
+          <div id="csvStatus" class="status hidden"></div>
+        </div>
+
+        <div id="statsWrap" class="stats hidden mt16">
+          <div class="statGrid">
+            <div class="stat"><div class="k">Raw rows</div><div id="rawRows" class="v">—</div></div>
+            <div class="stat"><div class="k">Cleaned rows</div><div id="cleanRows" class="v">—</div></div>
+            <div class="stat"><div class="k">Dropped rows</div><div id="dropRows" class="v">—</div></div>
+            <div class="stat"><div class="k">Dropped cols</div><div id="dropCols" class="v">—</div></div>
+          </div>
+
+          <a id="downloadBtn" class="btn mt12" href="#" download>Download Cleaned CSV</a>
+
+          <div class="chartGrid mt12">
+            <div class="chartCard">
+              <div class="k">Rows: Before vs After</div>
+              <canvas id="chartRows"></canvas>
+            </div>
+            <div class="chartCard">
+              <div class="k">Columns: Before vs After</div>
+              <canvas id="chartCols"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/js/toolkit.js"></script>
+</body>
+</html>
